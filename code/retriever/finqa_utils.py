@@ -208,14 +208,14 @@ def wrap_single_pair(tokenizer, question, context, label, max_seq_length,
     
     question_tokens = tokenize(tokenizer, question)
     this_gold_tokens = tokenize(tokenizer, context)
-    print(" question tokens ",question_tokens)
-    print(" this_gold_tokens ",this_gold_tokens)
+#     print(" question tokens ",question_tokens)
+#     print(" this_gold_tokens ",this_gold_tokens)
     
 
     tokens = [cls_token] + question_tokens + [sep_token]
     segment_ids = [0] * len(tokens)
-    print(" tokens_main ",tokens)
-    print(" segment_ids ",segment_ids)
+#     print(" tokens_main ",tokens)
+#     print(" segment_ids ",segment_ids)
 
     tokens += this_gold_tokens
     segment_ids.extend([0] * len(this_gold_tokens))
@@ -227,8 +227,8 @@ def wrap_single_pair(tokenizer, question, context, label, max_seq_length,
 
     input_ids = tokenizer.convert_tokens_to_ids(tokens)
     input_mask = [1] * len(input_ids)
-    print(" input_ids ",input_ids)
-    print(" input_mask ",input_mask)
+#     print(" input_ids ",input_ids)
+#     print(" input_mask ",input_mask)
 
     padding = [0] * (max_seq_length - len(input_ids))
     input_ids.extend(padding)
@@ -247,7 +247,7 @@ def wrap_single_pair(tokenizer, question, context, label, max_seq_length,
         "segment_ids": segment_ids,
         "label": label
     }
-    print(" segment_ids ",segment_ids)
+#     print(" segment_ids ",segment_ids)
     
     return this_input_feature
 
@@ -259,8 +259,8 @@ def convert_single_mathqa_example(example, option, is_training, tokenizer, max_s
 
     pos_features = []
     features_neg = []
-    print(" pos_features ",pos_features)
-    print(" features_neg ",features_neg)
+#     print(" pos_features ",pos_features)
+#     print(" features_neg ",features_neg)
     
     question = example.question
     all_text = example.pre_text + example.post_text
@@ -358,9 +358,9 @@ def read_mathqa_entry(entry, tokenizer):
     pre_text = entry["pre_text"]
     post_text = entry["post_text"]
     table = entry["table"]
-    print(" pre_text",pre_text)
-    print(" post_text",post_text)
-    print(" table",table)
+#     print(" pre_text",pre_text)
+#     print(" post_text",post_text)
+#     print(" table",table)
 
     return MathQAExample(
         filename_id=filename_id,
