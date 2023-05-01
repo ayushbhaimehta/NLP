@@ -208,7 +208,7 @@ def wrap_single_pair(tokenizer, question, context, label, max_seq_length,
     
     question_tokens = tokenize(tokenizer, question)
     this_gold_tokens = tokenize(tokenizer, context)
-    print(quetion_tokens," question tokens")
+    print(question_tokens," question tokens")
     print(this_gold_tokens," this_gold_tokens")
     
 
